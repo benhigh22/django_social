@@ -4,7 +4,7 @@
 {% block content %}
 
     {% for team in object_list %}
-    <div><a href="{% url 'team_detail' team.id %}">{{ team.team_name }}</a></div>
+    <div>{{ team.team_name }}</div>
     {% endfor %}
 
 {% endblock %}

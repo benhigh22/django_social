@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}User Detail{% endblock %}
+
+{% block content %}
+
+    <table class="highlight">
+       <th>Rants by {{ request.user }}</th>
+       {% for topic in object.topic_set.all %}
+       <tr><td><a href="{% url 'topic_detail' topic.id %}">{{ topic.title }}</a></td></tr>
+       {% endfor %}
+    </table>
+
+{% endblock %}

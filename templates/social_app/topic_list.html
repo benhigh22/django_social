@@ -3,10 +3,10 @@
 {% block content %}
 <table class="highlight">
        <th>Team</th>
-       <th>Topic</th>
+       <th>Title</th>
     {% for topic in object_list %}
        <tr><td>{% for team in topic.teams.all %}{{ team }}{% endfor %}</td>
-       <td><a href="{% url 'topic_detail' topic.id %}">{{ topic.message_post }}</a></td></tr>
+       <td><a href="{% url 'topic_detail' topic.id %}">{{ topic.title }}</a></td></tr>
     {% endfor %}
 </table>
 {% endblock %}
