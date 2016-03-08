@@ -2,9 +2,10 @@
 {% block title %}All Teams{% endblock %}
 
 {% block content %}
-
+    <table class="highlight">
+    <th>Team</th>
     {% for team in object_list %}
-    <div>{{ team.team_name }}</div>
+    <tr><td><a href="{% url 'team_detail' team.id %}">{{ team.team_name }}</a></td></tr>
     {% endfor %}
-
+    </table>
 {% endblock %}

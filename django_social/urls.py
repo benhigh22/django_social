@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from social_app.views import UserCreateView, IndexTemplateView, TopicCreateView, TopicListView, TeamCreateView, \
-    TopicDetailView, TeamListView, UserDetailView
+    TopicDetailView, TeamListView, UserDetailView, TeamDetailView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -30,5 +30,6 @@ urlpatterns = [
     url(r'^newteam', TeamCreateView.as_view(), name='team_create'),
     url(r'^topicdetail/(?P<pk>\d+)', TopicDetailView.as_view(), name='topic_detail'),
     url(r'^teamlist', TeamListView.as_view(), name='team_list'),
-    url(r'^userdetail/(?P<pk>\d+)', UserDetailView.as_view(), name='user_detail')
+    url(r'^userdetail/(?P<pk>\d+)', UserDetailView.as_view(), name='user_detail'),
+    url(r'^teamdetail/(?P<pk>\d+)', TeamDetailView.as_view(), name='team_detail')
 ]

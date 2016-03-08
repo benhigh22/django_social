@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
-{% block title %}User Detail{% endblock %}
+{% block title %}Team Detail{% endblock %}
 
 {% block content %}
-
-    <table class="highlight">
-       <th>All Rants from {{ object }}</th>
+<table class="highlight">
+       <th>Rants for {{ object.team_name }}</th>
        {% for topic in object.topic_set.all %}
        <tr><td><a href="{% url 'topic_detail' topic.id %}">{{ topic.title }}</a></td></tr>
        {% endfor %}
-    </table>
+</table>
 
 {% endblock %}

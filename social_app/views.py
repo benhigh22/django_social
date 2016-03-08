@@ -63,3 +63,6 @@ class TeamListView(ListView):
 
 class UserDetailView(DetailView):
     model = User
+
+class TeamDetailView(DetailView):
+    model = Team

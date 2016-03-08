@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}{% endblock %}
+{% block title %}Topic Detail{% endblock %}
 
 {% block content %}
 
@@ -8,7 +8,7 @@
        <th>User that Posted</th>
        <th>Date/Time Created</th>
        <tr><td>{{ object.body }}</td>
-       <td><a href="{% url 'user_detail' user.id %}">{{ object.user }}</a></td>
+       <td><a href="{% url 'user_detail' object.user.id %}">{{ object.user }}</a></td>
        <td>{{ object.time_created }}</td></tr>
     </table>
 
