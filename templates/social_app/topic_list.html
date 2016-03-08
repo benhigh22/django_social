@@ -2,9 +2,11 @@
 {% block title %}Topic List{% endblock %}
 {% block content %}
 <table class="highlight">
-    <th>Topics</th>
+       <th>Team</th>
+       <th>Topic</th>
     {% for topic in object_list %}
-    <tr><td>{{ topic.message_post }} ------ {{ topic.time_created }}</td></tr>
+       <tr><td>{% for team in topic.nfl_teams.all %}{{ team }}{% endfor %}</td>
+       <td><a href="{% url 'topic_detail' topic.id %}">{{ topic.message_post }}</a></td></tr>
     {% endfor %}
 </table>
 {% endblock %}

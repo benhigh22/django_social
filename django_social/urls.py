@@ -16,7 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
-from social_app.views import UserCreateView, IndexTemplateView, TopicCreateView, TeammateCreateView, TopicListView
+from social_app.views import UserCreateView, IndexTemplateView, TopicCreateView, TopicListView, TeamCreateView, \
+    TopicDetailView, TeamListView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -25,6 +26,8 @@ urlpatterns = [
     url(r'^login', auth_views.login, name='login'),
     url(r'^logout', auth_views.logout_then_login, name='logout'),
     url(r'^newtopic', TopicCreateView.as_view(), name='topic'),
-    url(r'^newteammate', TeammateCreateView.as_view(), name='teammate'),
-    url(r'^topiclist', TopicListView.as_view(), name='topic_list')
+    url(r'^topiclist', TopicListView.as_view(), name='topic_list'),
+    url(r'^newteam', TeamCreateView.as_view(), name='team_create'),
+    url(r'^topicdetail/(?P<pk>\d+)', TopicDetailView.as_view(), name='topic_detail'),
+    url(r'^teamlist', TeamListView.as_view(), name='team_list')
 ]

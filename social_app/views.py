@@ -3,9 +3,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.shortcuts import render
-from django.views.generic import CreateView, TemplateView, ListView
+from django.views.generic import CreateView, TemplateView, ListView, DetailView
 
-from social_app.models import UserProfile, Topic, Teammate
+from social_app.models import UserProfile, Topic, Team
 
 
 class IndexTemplateView(TemplateView):
@@ -14,8 +14,6 @@ class IndexTemplateView(TemplateView):
 
 class NewUserCreationForm(UserCreationForm):
     age = forms.IntegerField()
-    favorite_team = forms.CharField(max_length=50)
-    years_of_experience = forms.IntegerField()
 
 
 class UserCreateView(CreateView):
@@ -25,10 +23,7 @@ class UserCreateView(CreateView):
     def form_valid(self, form):
         user_object = form.save()
         user_age = form.cleaned_data.get("age")
-        user_fav_team = form.cleaned_data.get("favorite_team")
-        user_years_exp = form.cleaned_data.get("years_of_experience")
-        UserProfile.objects.create(user=user_object, age=user_age,
-                                   favorite_team=user_fav_team, years_of_experience=user_years_exp)
+        UserProfile.objects.create(user=user_object, age=user_age)
         return super().form_valid(form)
 
     def get_success_url(self):
@@ -37,7 +32,7 @@ class UserCreateView(CreateView):
 
 class TopicCreateView(CreateView):
     model = Topic
-    fields = ('message_post',)
+    fields = ('message_post', 'nfl_teams')
 
     def form_valid(self, form):
         topic_object = form.save(commit=False)
@@ -52,6 +47,16 @@ class TopicListView(ListView):
     model = Topic
 
 
-class TeammateCreateView(CreateView):
-    model = Teammate
-    fields = ('user','relationships')
+class TopicDetailView(DetailView):
+    model = Topic
+
+
+class TeamCreateView(CreateView):
+    model = Team
+    fields = ('team_name',)
+
+    def get_success_url(self):
+        return reverse("topic")
+
+class TeamListView(ListView):
+    model = Team

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}All Teams{% endblock %}
+
+{% block content %}
+
+    {% for team in object_list %}
+    <div>{{ team.team_name }}</div>
+    {% endfor %}
+
+{% endblock %}

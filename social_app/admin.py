@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from social_app.models import UserProfile, Topic, Teammate
+from social_app.models import UserProfile, Topic, Team
 
 admin.site.register(UserProfile)
-admin.site.register(Teammate)
 admin.site.register(Topic)
+admin.site.register(Team)
