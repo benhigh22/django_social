@@ -17,6 +17,8 @@ class Team(models.Model):
     def __str__(self):
         return self.team_name
 
+    class Meta:
+        ordering = ['-team_name']
 
 class Topic(models.Model):
     message_post = models.TextField()
