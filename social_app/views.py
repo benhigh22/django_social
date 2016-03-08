@@ -32,7 +32,7 @@ class UserCreateView(CreateView):
 
 class TopicCreateView(CreateView):
     model = Topic
-    fields = ('message_post', 'nfl_teams')
+    fields = ('message_post', 'teams')
 
     def form_valid(self, form):
         topic_object = form.save(commit=False)
@@ -60,3 +60,4 @@ class TeamCreateView(CreateView):
 
 class TeamListView(ListView):
     model = Team
+

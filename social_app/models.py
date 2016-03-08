@@ -22,7 +22,7 @@ class Topic(models.Model):
     message_post = models.TextField()
     time_created = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User)
-    nfl_teams = models.ManyToManyField(Team)
+    teams = models.ManyToManyField(Team)
 
     class Meta:
         ordering = ['-time_created']

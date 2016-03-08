@@ -29,5 +29,5 @@ urlpatterns = [
     url(r'^topiclist', TopicListView.as_view(), name='topic_list'),
     url(r'^newteam', TeamCreateView.as_view(), name='team_create'),
     url(r'^topicdetail/(?P<pk>\d+)', TopicDetailView.as_view(), name='topic_detail'),
-    url(r'^teamlist', TeamListView.as_view(), name='team_list')
+    url(r'^teamlist', TeamListView.as_view(), name='team_list'),
 ]
