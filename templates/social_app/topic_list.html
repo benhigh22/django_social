@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 {% block title %}Topic List{% endblock %}
 {% block content %}
+    <h1>All Rants</h1>
 <table class="highlight">
        <th>Team</th>
        <th>Title</th>
     {% for topic in object_list %}
-       <tr><td>{% for team in topic.teams.all %}{{ team }}{% endfor %}</td>
+       <tr><td>{% for team in topic.teams.all %}
+               <a href="{% url 'team_detail' team.id %}">{{ team }}</a>
+               {% endfor %}</td>
        <td><a href="{% url 'topic_detail' topic.id %}">{{ topic.title }}</a></td></tr>
     {% endfor %}
 </table>
