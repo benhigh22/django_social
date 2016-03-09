@@ -10,6 +10,7 @@
                <a href="{% url 'team_detail' team.id %}">{{ team }}</a>
                {% endfor %}</td>
        <td><a href="{% url 'topic_detail' topic.id %}">{{ topic.title }}</a></td></tr>
+
     {% endfor %}
 </table>
 {% endblock %}

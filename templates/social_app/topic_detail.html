@@ -10,6 +10,15 @@
        <tr><td>{{ object.body }}</td>
        <td><a href="{% url 'user_detail' object.user.id %}">{{ object.user }}</a></td>
        <td>{{ object.time_created }}</td></tr>
+
     </table>
 
+<a href="{% url 'like_view' object.id %}" class="waves-effect waves-light btn-large">Click to like this Rant!</a>
+    <table class="highlight">
+       <th>Users Who Liked This:</th>
+       {% for like in object.likes.all %}
+          <tr><td>{{ like.username }}</td></tr>
+       {% endfor %}
+    </table>
 {% endblock %}
+
