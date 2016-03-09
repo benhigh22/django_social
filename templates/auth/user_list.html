@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}All Users{% endblock %}
+
+{% block content %}
+    <h1>All Users:</h1>
+    <h5>(Click to see their Rants)</h5>
+    <table class="highlight">
+    {% for user in object_list %}
+    <tr><td><a href="{% url 'user_detail' user.id %}">{{ user }}</a></td></tr>
+    {% endfor %}
+    </table>
+{% endblock %}

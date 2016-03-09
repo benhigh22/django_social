@@ -6,11 +6,10 @@
        <th>Team</th>
        <th>Title</th>
     {% for topic in object_list %}
-       <tr><td>{% for team in topic.teams.all %}
-               <a href="{% url 'team_detail' team.id %}">{{ team }}</a>
-               {% endfor %}</td>
+       {% for team in topic.teams.all %}
+               <tr><td><a href="{% url 'team_detail' team.id %}">{{ team }}</a></td>
+               {% endfor %}
        <td><a href="{% url 'topic_detail' topic.id %}">{{ topic.title }}</a></td></tr>
-
     {% endfor %}
 </table>
 {% endblock %}

@@ -2,8 +2,9 @@
 {% block title %}All Teams{% endblock %}
 
 {% block content %}
+    <h1>Teams You Can Rant About:</h1>
+    <h5>(You can add more with the Add a Team option above)</h5>
     <table class="highlight">
-    <th>Team</th>
     {% for team in object_list %}
     <tr><td><a href="{% url 'team_detail' team.id %}">{{ team.team_name }}</a></td></tr>
     {% endfor %}

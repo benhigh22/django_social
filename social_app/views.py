@@ -55,6 +55,10 @@ class UserDetailView(DetailView):
     model = User
 
 
+class UserListView(ListView):
+    model = User
+
+
 class TeamDetailView(DetailView):
     model = Team
 
